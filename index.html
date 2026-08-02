@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thermoscope — Temperature Converter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="instrument">
+  <p class="eyebrow">No. 001 — Precision Instrument</p>
+  <h1>Thermoscope</h1>
+
+  <div class="dial-wrap">
+    <div class="dial-rim"></div>
+    <div class="dial-face"></div>
+    <svg class="dial-svg" viewBox="0 0 280 280" id="dialSvg">
+      <!-- ticks and labels injected by JS -->
+      <g id="ticksGroup"></g>
+
+      <!-- needle -->
+      <g class="needle-pivot" id="needlePivot">
+        <polygon class="needle" points="140,158 136,164 140,60 144,164" />
+        <circle class="needle-cap" cx="140" cy="158" r="9"/>
+      </g>
+    </svg>
+    <div class="readout">
+      <div class="value" id="readoutValue">15.0</div>
+      <div class="unit" id="readoutUnit">DEGREES CELSIUS</div>
+    </div>
+  </div>
+
+  <div class="location-row">
+    <input type="text" id="cityInput" class="city-input" placeholder="Search a city…">
+    <button id="locateBtn" class="locate-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Search
+    </button>
+  </div>
+  <div class="locate-status" id="locateStatus"></div>
+
+  <div class="scales">
+    <div class="scale active" id="scaleC">
+      <label>Celsius</label>
+      <input type="number" id="inputC" value="15" step="0.1">
+      <span class="sym">°C</span>
+    </div>
+    <div class="scale" id="scaleF">
+      <label>Fahrenheit</label>
+      <input type="number" id="inputF" value="59" step="0.1">
+      <span class="sym">°F</span>
+    </div>
+    <div class="scale" id="scaleK">
+      <label>Kelvin</label>
+      <input type="number" id="inputK" value="288.15" step="0.1">
+      <span class="sym">K</span>
+    </div>
+  </div>
+
+  <p class="footer-note">Range shown on dial: −40° to 50°C · absolute zero = −273.15°C</p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
